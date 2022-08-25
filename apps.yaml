@@ -1,0 +1,6 @@
+ring_local_saves:
+  module: Ring_Subscription_Free
+  class: ring_doorbell_video_download
+  storage_location: \PATH\TO\FILES
+  camera: camera.front_door
+  sensor: sensor.front_door_last_activity
