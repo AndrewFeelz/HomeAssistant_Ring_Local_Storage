@@ -1,4 +1,4 @@
-# Description
+# Description - CURRENTLY IN DEVELOPMENT
 - This AppDaemon was created so that a User would not have to give the Ring app constant location to access the camera and history
   - Bonus is that ring subscription is not needed
 
