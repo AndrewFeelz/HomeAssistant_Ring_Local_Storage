@@ -1,0 +1,1 @@
+# HomeAssistant_Ring_Local_Storage
