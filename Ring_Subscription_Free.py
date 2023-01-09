@@ -65,10 +65,17 @@ class ring_doorbell_video_download(hass.Hass):
         x = datetime.datetime.now()
         if(x.day <= 7):
             past_month = x.month-1
-            day_in_prevoius_month = DAYS_IN_A_MONTH[x.month - (past_month - 1)]
-            cutoff_day = day_in_prevoius_month - abs(x.day - 7)
             
-            cutoff_day = str(cutoff_day) + '.' + str(past_month) + '.' + str(x.year) + ' 00:00:00,00'
+            if (past_month == 0):
+                past_month = 11
+                day_in_prevoius_month = DAYS_IN_A_MONTH[x.month - (past_month - 1)]
+                year_needed = x.year - 1
+            else:
+                day_in_prevoius_month = DAYS_IN_A_MONTH[x.month - (past_month - 1)]
+                year_needed = x.year
+
+            cutoff_day = day_in_prevoius_month - abs(x.day - 7)
+            cutoff_day = str(cutoff_day) + '.' + str(past_month) + '.' + str(year_needed) + ' 00:00:00,00'
             cutoff_day_obj = datetime.datetime.strptime( cutoff_day,'%d.%m.%Y %H:%M:%S,%f')
         else:
             cutoff_day = str(x.day - 7) + '.' + str(x.month) + '.' + str(x.year) + ' 00:00:00,00'
